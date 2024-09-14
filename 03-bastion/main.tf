@@ -5,7 +5,7 @@ module "bastian" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [data.aws_ssm_parameter.bastian_sg_id.value]
   subnet_id              = local.public_subnet_id # convert StringList to list and get first element
-  ami                    = data.aws_ami.ami_info
+  ami                    = data.aws_ami.ami_info.id
 
   tags = merge(
     var.common_tags,
