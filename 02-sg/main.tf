@@ -35,7 +35,7 @@ module "bastion" {
   sg_description = "SG for Bostion Instances"
   common_tags    = var.common_tags
   sg_name        = "bastion"
-  vpc_id         = data.aws_ssm_parameter.vpc_id
+  vpc_id         = data.aws_ssm_parameter.vpc_id.value
 }
 
 module "ansible" {
@@ -45,7 +45,7 @@ module "ansible" {
   sg_description = "SG for Ansible Instances"
   common_tags    = var.common_tags
   sg_name        = "ansible"
-  vpc_id         = data.aws_ssm_parameter.vpc_id
+  vpc_id         = data.aws_ssm_parameter.vpc_id.value
 }
 
 # DB is accepting connections from backend,i-e from backend getting traffic to db
