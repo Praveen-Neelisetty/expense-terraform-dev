@@ -24,12 +24,8 @@ variable "is_peering_required" {
 
 variable "common_tags" {
   default = {
-    Project     = var.project_name
-    Environment = var.environment
+    Project     = "expense"
+    Environment = "dev"
     Terraform   = true
   }
-}
-
-variable "is_peering_required" {
-  default = true
 }
