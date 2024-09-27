@@ -1,9 +1,9 @@
-module "bastian" {
+module "bastion" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
   name                   = local.bastion_name
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [data.aws_ssm_parameter.bastian_sg_id.value]
+  vpc_security_group_ids = [data.aws_ssm_parameter.bastion_sg_id.value]
   subnet_id              = local.public_subnet_id # convert StringList to list and get first element
   ami                    = data.aws_ami.ami_info.id
 
